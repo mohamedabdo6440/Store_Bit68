@@ -1,0 +1,10 @@
+.footer {
+  position: absolute;
+  margin-top: 550px;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    margin-top: 400px;
+  }
+}

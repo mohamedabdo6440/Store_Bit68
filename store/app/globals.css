@@ -1,0 +1,263 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+/*topNav style*/
+.topNav {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 40px;
+  background-color: #2d2f87;
+  font-family: "Readex Pro", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav_title {
+  top: 11px;
+  left: 608px;
+  width: 224px;
+  height: 18px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/*medNav style*/
+.med_nav {
+  top: 40px;
+  left: 1px;
+  width: 1440px;
+  height: 104px;
+  background-color: #ffffff;
+}
+
+.med_container {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 343px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image_logo {
+  top: 80px;
+  left: 82px;
+  width: 24px;
+  height: 24px;
+}
+.text_logo {
+  top: 83px;
+  left: 111px;
+  width: 98px;
+  height: 19px;
+  color: #2e2e2e;
+  font-size: 16px;
+  margin-left: 5px;
+  margin: 0;
+  font-family: "SF Pro Display", sans-serif;
+}
+
+.search_bar {
+  top: 65px;
+  left: 344px;
+  width: 752px;
+  height: 54px;
+  padding-left: 20px;
+  background-color: #ffffff;
+  border: 1px solid #cbcbcb;
+  border-radius: 15px;
+}
+
+.search_image {
+  top: 80px;
+  left: 1040px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+
+.medNav_icons {
+  width: 344px;
+  display: flex;
+  justify-content: center;
+}
+.icons_text {
+  top: 77px;
+  left: 1212px;
+  width: 47px;
+  height: 30px;
+  color: #2d2f82;
+  font-size: 16px;
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+}
+
+.icons_image {
+  top: 80px;
+  left: 1283px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
+.icons_image_cart {
+  top: 78px;
+  left: 1331px;
+  width: 29px;
+  height: 28px;
+  padding-left: 11px;
+
+  cursor: pointer;
+}
+
+.Popup_cart {
+  top: 120px;
+  left: 860px;
+  width: 463px;
+  height: 548px;
+  background-color: #ffffff;
+  position: absolute;
+  border: 1px solid #00000036;
+  z-index: 100;
+}
+.cart_body {
+  position: absolute;
+  top: 30px;
+}
+
+.span_cart_content {
+  color: #1111118e;
+  font-size: 12px;
+  padding-right: 5px px;
+  font-weight: 500;
+}
+
+.numberOfCart {
+  border: 1px solid #eee;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+/*but_nav style*/
+
+.but_nav {
+  top: 144px;
+  left: 0px;
+  width: 1440px;
+  height: 45px;
+  background-color: #121212;
+}
+
+.but_nav_links {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.but_nav_links li {
+  margin-top: 11px;
+}
+.but_nav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.but_nav a:hover {
+  color: rgba(255, 255, 255, 0.644);
+}
+ul {
+  list-style: none;
+}
+.menu_icon {
+  display: none;
+}
+
+/*main categories style*/
+.mainCat_title {
+  top: 797px;
+  left: 82px;
+  width: 245px;
+  height: 36px;
+  font-size: 30px;
+  color: #2d2f78;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: bold;
+}
+
+.Previous_items {
+  background-color: #2d2f78;
+  border: 1px solid #2d2f78;
+  border-radius: 8px;
+  color: white;
+  font-family: cursive;
+}
+.Next_items {
+  background-color: #121212;
+  border: 1px solid #121212;
+  border-radius: 8px;
+  color: white;
+  font-family: cursive;
+}
+/*Responsiv for mobile screen*/
+
+@media only screen and (max-width: 600px) {
+  body {
+    .topNav {
+      width: 375px;
+    }
+    .nav_title {
+      margin: 0;
+    }
+    .med_nav {
+      width: 375px;
+    }
+    .medNav_icons {
+      width: 240px;
+      justify-content: flex-end;
+    }
+    .menu_icon {
+      margin-left: 47px;
+      display: block;
+    }
+    .search_bar {
+      position: absolute;
+      width: 327px;
+      top: 109px;
+      left: 24px;
+      height: 37px;
+    }
+    .search_image {
+      left: 314px;
+      top: 114px;
+    }
+    .logo {
+      display: none;
+    }
+    .icons_text {
+      display: none;
+    }
+    .but_nav {
+      display: none;
+    }
+    .Popup_cart {
+      top: 146px;
+      left: 95px;
+      width: 280px;
+      height: 518px;
+    }
+    .mainCat_title {
+      width: 115px;
+      height: 16px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
