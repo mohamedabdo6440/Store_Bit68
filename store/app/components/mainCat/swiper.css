@@ -38,7 +38,7 @@
   height: 456px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal,
   .swiper-pagination-custom,
