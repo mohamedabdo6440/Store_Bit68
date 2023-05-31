@@ -14,18 +14,14 @@ const SwiperHeader = ({ slider }) => {
     const [SliderImage, setSliderImage] = useState([])
 
     useEffect(() => {
-        const imagesAfterAddHeught = slider && slider.map((ele) => {
+        const imagesAfterAddHeight = slider && slider.map((ele) => {
             return ({ ...ele, imgHeight: "350px" })
         })
-        imagesAfterAddHeught && setSliderImage(imagesAfterAddHeught)
+        imagesAfterAddHeight && setSliderImage(imagesAfterAddHeight)
     }, [])
-
-    console.log(SliderImage);
-
     return (
         <div className={`${style.header_swiper}`}>
             <Swiper
-
                 cssMode={true}
                 navigation={true}
                 pagination={true}
@@ -38,7 +34,7 @@ const SwiperHeader = ({ slider }) => {
                 {
                     SliderImage && SliderImage.map((img) => {
                         return (
-                            <SwiperSlide style={{ height: `${img.image === "/images/mainCat7.png" ? img.imgHeight : ''}` }} key={img.id}>
+                            <SwiperSlide style={{ height: `${img.image === "/images/mainCat7.png" && img.imgHeight}` }} key={img.id}>
                                 <div>
                                     <img src={img.image} />
                                 </div>

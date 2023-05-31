@@ -4,6 +4,7 @@ import style from './mainSwiper.module.css'
 import MainSwiper from './MainSwiper'
 import SwiperHeader from '../header/SwiperHeader'
 import axios from 'axios'
+import { handleClickNext, handleClickPrev } from '@/lib/Pagination'
 const MainCat = ({ category }) => {
 
     const imageForBotSwiper = [
@@ -32,27 +33,6 @@ const MainCat = ({ category }) => {
         setNextReq(category.next);
         setPrevReq(category.previous);
     }, [])
-
-
-    const handleClickNext = () => {
-        NextReq !== null && axios.get(`${NextReq}`).then((res) => {
-            setCategoryData(res.data.results)
-            setNextReq(res.data.next);
-            setPrevReq(res.data.previous);
-        })
-    }
-    const handleClickPrev = () => {
-        PrevReq !== null && axios.get(`${PrevReq}`).then((res) => {
-            setCategoryData(res.data.results)
-            setPrevReq(res.data.previous);
-            setNextReq(res.data.next);
-        })
-    }
-
-
-
-
-
     return (
         <section className=''>
             <div className='container mt-4 mb-4'>
@@ -61,14 +41,14 @@ const MainCat = ({ category }) => {
             </div>
             <div className="container d-flex justify-content-center">
                 <button
-                    onClick={() => PrevReq !== null ? handleClickPrev() : alert("There is no other data")}
+                    onClick={() => PrevReq !== null ? handleClickPrev(PrevReq, setCategoryData, setPrevReq, setNextReq) : alert("There is no other data")}
                     className="Previous_items me-2"
                 >
                     {'<< '}Previous
                 </button>
 
                 <button
-                    onClick={() => NextReq !== null ? handleClickNext() : alert("There is no other data")}
+                    onClick={() => NextReq !== null ? handleClickNext(NextReq, setCategoryData, setNextReq, setPrevReq) : alert("There is no other data")}
                     className="Next_items"
                 >
                     Next {'>>'}

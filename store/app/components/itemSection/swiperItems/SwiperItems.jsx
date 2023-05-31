@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Fragment, useEffect, useRef, useState } from "react";
+import { handleClickNext, handleClickPrev } from "@/lib/Pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,7 +9,6 @@ import "swiper/css/navigation";
 import "../items.css";
 
 import { Pagination, Navigation } from "swiper";
-import axios from "axios";
 
 export default function SwiperItems({ items }) {
 
@@ -21,22 +21,6 @@ export default function SwiperItems({ items }) {
         setNextReq(items.next);
         setPrevReq(items.previous);
     }, [swiperRef])
-
-
-    const handleClickNext = () => {
-        NextReq !== null && axios.get(`${NextReq}`).then((res) => {
-            setItems(res.data.results)
-            setNextReq(res.data.next);
-            setPrevReq(res.data.previous);
-        })
-    }
-    const handleClickPrev = () => {
-        PrevReq !== null && axios.get(`${PrevReq}`).then((res) => {
-            setItems(res.data.results)
-            setPrevReq(res.data.previous);
-            setNextReq(res.data.next);
-        })
-    }
 
     return (
         <div className="parent_swiper">
@@ -76,7 +60,7 @@ export default function SwiperItems({ items }) {
             </Swiper>
             <p className="append-buttons">
                 <button
-                    onClick={() => PrevReq !== null ? handleClickPrev() : alert("There is no other data")} className="Previous_items"
+                    onClick={() => PrevReq !== null ? handleClickPrev(PrevReq, setItems, setPrevReq, setNextReq) : alert("There is no other data")} className="Previous_items"
                     style={{
                         backgroundColor: "#2d2f78",
                         border: "1px solid #2d2f78;",
@@ -89,7 +73,7 @@ export default function SwiperItems({ items }) {
                 </button>
 
                 <button
-                    onClick={() => NextReq !== null ? handleClickNext() : alert("There is no other data")} className="Next_items"
+                    onClick={() => NextReq !== null ? handleClickNext(NextReq, setItems, setNextReq, setPrevReq) : alert("There is no other data")} className="Next_items"
                     style={{
                         backgroundColor: "#121212;",
                         border: "1px solid #121212;",

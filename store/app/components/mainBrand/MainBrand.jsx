@@ -5,11 +5,9 @@ import style from '../mainCat/mainSwiper.module.css'
 import MainSwiper from '../mainCat/MainSwiper'
 import '../mainCat/swiper.css'
 import axios from 'axios'
+import { handleClickNext, handleClickPrev } from '@/lib/Pagination'
 
 const MainBrand = ({ brand }) => {
-    console.log(brand);
-
-
     const [bransData, setBransData] = useState(brand.results)
     const [PrevReq, setPrevReq] = useState(null)
     const [NextReq, setNextReq] = useState(null)
@@ -18,25 +16,6 @@ const MainBrand = ({ brand }) => {
         setNextReq(brand.next);
         setPrevReq(brand.previous);
     }, [])
-
-
-    const handleClickNext = () => {
-        NextReq !== null && axios.get(`${NextReq}`).then((res) => {
-            setBransData(res.data.results)
-            setNextReq(res.data.next);
-            setPrevReq(res.data.previous);
-        })
-    }
-    const handleClickPrev = () => {
-        PrevReq !== null && axios.get(`${PrevReq}`).then((res) => {
-            setBransData(res.data.results)
-            setPrevReq(res.data.previous);
-            setNextReq(res.data.next);
-        })
-    }
-
-
-
     return (
         <section>
             <div className='container mb-4'>
@@ -44,14 +23,14 @@ const MainBrand = ({ brand }) => {
             </div>
             <div className="container d-flex justify-content-center mb-2">
                 <button
-                    onClick={() => PrevReq !== null ? handleClickPrev() : alert("There is no other data")}
+                    onClick={() => PrevReq !== null ? handleClickPrev(PrevReq, setBransData, setPrevReq, setNextReq) : alert("There is no other data")}
                     className="Previous_items me-2"
                 >
                     {'<< '}Previous
                 </button>
 
                 <button
-                    onClick={() => NextReq !== null ? handleClickNext() : alert("There is no other data")}
+                    onClick={() => NextReq !== null ? handleClickNext(NextReq, setBransData, setNextReq, setPrevReq) : alert("There is no other data")}
                     className="Next_items"
                 >
                     Next {'>>'}
